@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        input[type=text]{
+            width: 50px;
+            height: 60px;
+            margin: 10px;
+            padding-left: 40px;
+            font-size: 30px;   
+        }
+    </style>
+
+
+</head>
+<body onload="">
+    <center>
+        <h1>Tic Tac Toe</h1>
+        <h2>Enter 'X' or 'O'</h2>
+        <h3 style="color:tomato;">Note: Do not use any button like, tab, backspace, etc <br>
+            <font color="green">use mouse to select box</font>
+        </h3>
+    </center>
+    <div style="margin: auto auto; width: 346px; background-color:darkslategrey ; height: max-content; padding: 10px;">
+        <!--  x is row and y is column i.e. x1y1 is first row first column -->
+        <input type="text"  id="x1y1">
+        <input type="text"  id="x1y2">
+        <input type="text"  id="x1y3">
+        <input type="text"  id="x2y1">
+        <input type="text"  id="x2y2">
+        <input type="text"  id="x2y3">
+        <input type="text"  id="x3y1">
+        <input type="text"  id="x3y2">
+        <input type="text"  id="x3y3">
+    </div>
+
+    <script>
+        window.onload = function(){
+            document.getElementById("x1y1").value = '';
+            document.getElementById("x1y2").value = '';
+            document.getElementById("x1y3").value = '';
+            document.getElementById("x2y1").value = '';
+            document.getElementById("x2y2").value = '';
+            document.getElementById("x2y3").value = '';
+            document.getElementById("x3y1").value = '';
+            document.getElementById("x3y2").value = '';
+            document.getElementById("x3y3").value = '';
+        }
+        var x1y1, x1y2, x1y3, x2y1, x2y2, x2y3, x3y1, x3y2, x3y3;
+        function check(){
+            //check first row
+            if (x1y1 === 1 && x1y2 === 1 && x1y3 === 1){
+                alert("x Win")
+            }
+            else if(x1y1 === 0 && x1y2 === 0 && x1y3 === 0){
+                alert("o win")
+            }
+            //check second row
+            else if(x2y1 === 1 && x2y2 === 1 && x2y3 === 1){
+                alert("x win")
+            }
+            else if(x2y1 === 0 && x2y2 === 0 && x2y3 === 0){
+                alert("o win")
+            }
+            //check third row
+            else if(x3y1 === 1 && x3y2 === 1 && x3y3 === 1){
+                alert("x win")
+            }
+            else if(x3y1 === 0 && x3y2 === 0 && x3y3 === 0){
+                alert("o win")
+            }
+            //check first column
+            else if(x1y1 === 1 && x2y1 === 1 && x3y1 === 1){
+                alert("x win")
+            }
+            else if(x1y1 === 0 && x2y1 === 0 && x3y1 === 0){
+                alert("o win")
+            }
+            //check second column
+            else if(x1y2 === 1 && x2y2 === 1 && x3y2 === 1){
+                alert("x win")
+            }  
+            else if(x1y2 === 0 && x2y2 === 0 && x3y2 === 0){
+                alert("o win")
+            }
+            //check third column
+            else if(x1y3 === 1 && x2y3 === 1 && x3y3 === 1){
+                alert("x win")
+            }
+            else if(x1y3 === 0 && x2y3 === 0 && x3y3 === 0){
+                alert("o win")
+            }
+            //check negative(\) cross
+            else if(x1y1 === 1 && x2y2 === 1 && x3y3 === 1){
+                alert("x win")
+            }
+            else if(x1y1 === 0 && x2y2 === 0 && x3y3 === 0){
+                alert("o win")
+            }
+            //check positive(/) cross
+            else if(x1y3 === 1 && x2y2 === 1 && x3y1 === 1){
+                alert("x win")
+            }
+            else if(x1y3 === 0 && x2y2 === 0 && x1y3 === 0){
+                alert("o win")
+            }
+            else if(x1y1 != undefined && x1y2 != undefined && x1y3 != undefined && x2y1 != undefined && x2y2 != undefined && x2y3 != undefined && x3y1 != undefined && x3y2 != undefined && x3y3 != undefined){
+                alert("No one win")
+            }
+        }
+        //get and check first row
+        document.getElementById("x1y1").addEventListener("keyup", function(){
+            let val = document.getElementById("x1y1").value
+            if ( val == "X" || val == "x"){
+                x1y1 = 1;
+                check();
+            }
+            else if( val == "O" || val == "o"){
+                x1y1 = 0;
+                check();
+            }
+            else{
+                alert("Enter only 'X' or 'O' not others ")
+            }
+        });
+
+        document.getElementById("x1y2").addEventListener("keyup", function(){
+            let val = document.getElementById("x1y2").value
+            if ( val == "X" || val == "x"){
+                x1y2 = 1;
+                check();
+            }
+            else if( val == "O" || val == "o"){
+                x1y2 = 0;
+                check();
+            }
+            else{
+                alert("Enter only 'X' or 'O' not others ")
+            }
+        });
+
+        document.getElementById("x1y3").addEventListener("keyup", function(){
+            let val = document.getElementById("x1y3").value
+            if ( val == "X" || val == "x"){
+                x1y3 = 1;
+                check();
+            }
+            else if( val == "O" || val == "o"){
+                x1y3 = 0;
+                check();
+            }
+            else{
+                alert("Enter only 'X' or 'O' not others ")
+            }
+        });
+
+        //get and check second row
+        document.getElementById("x2y1").addEventListener("keyup", function(){
+            let val = document.getElementById("x2y1").value
+            if ( val == "X" || val == "x"){
+                x2y1 = 1;
+                check();
+            }
+            else if( val == "O" || val == "o"){
+                x2y1 = 0;
+                check();
+            }
+            else{
+                alert("Enter only 'X' or 'O' not others ")
+            }
+        });
+        document.getElementById("x2y2").addEventListener("keyup", function(){
+            let val = document.getElementById("x2y2").value
+            if ( val == "X" || val == "x"){
+                x2y2 = 1;
+                check();
+            }
+            else if( val == "O" || val == "o"){
+                x2y2 = 0;
+                check();
+            }
+            else{
+                alert("Enter only 'X' or 'O' not others ")
+            }
+        });
+        document.getElementById("x2y3").addEventListener("keyup", function(){
+            let val = document.getElementById("x2y3").value
+            if ( val == "X" || val == "x"){
+                x2y3 = 1;
+                check();
+            }
+            else if( val == "O" || val == "o"){
+                x2y3 = 0;
+                check();
+            }
+            else{
+                alert("Enter only 'X' or 'O' not others ")
+            }
+        });
+        // get and check third row 
+        document.getElementById("x3y1").addEventListener("keyup", function(){
+            let val = document.getElementById("x3y1").value
+            if ( val == "X" || val == "x"){
+                x3y1 = 1;
+                check();
+            }
+            else if( val == "O" || val == "o"){
+                x3y1 = 0;
+                check();
+            }
+            else{
+                alert("Enter only 'X' or 'O' not others ")
+            }
+        });
+        document.getElementById("x3y2").addEventListener("keyup", function(){
+            let val = document.getElementById("x3y2").value
+            if ( val == "X" || val == "x"){
+                x3y2 = 1;
+                check();
+            }
+            else if( val == "O" || val == "o"){
+                x3y2 = 0;
+                check();
+            }
+            else{
+                alert("Enter only 'X' or 'O' not others ")
+            }
+        });
+        document.getElementById("x3y3").addEventListener("keyup", function(){
+            let val = document.getElementById("x3y3").value
+            if ( val == "X" || val == "x"){
+                x3y3 = 1;
+                check();
+            }
+            else if( val == "O" || val == "o"){
+                x3y3 = 0;
+                check();
+            }
+            else{
+                alert("Enter only 'X' or 'O' not others ")
+            }
+        });
+    </script>
+
+</body>
+</html>
